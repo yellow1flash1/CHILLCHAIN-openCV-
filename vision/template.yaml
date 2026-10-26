@@ -1,0 +1,100 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  ChillChain Vision - OpenCV 5 produce grading agent on AWS Lambda (arm64 / Graviton),
+  behind an HTTP API, with photos, annotated results and agent traces kept in S3.
+
+Parameters:
+  VisionApiKey:
+    Type: String
+    NoEcho: true
+    MinLength: 24
+    Description: Shared secret the ChillChain app sends in the x-chillchain-key header.
+  RetentionDays:
+    Type: Number
+    Default: 30
+    Description: Days to keep scan photos, annotated images and traces in S3.
+
+Globals:
+  Function:
+    Timeout: 25
+    MemorySize: 2048
+
+Resources:
+  ScansBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault: { SSEAlgorithm: AES256 }
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      LifecycleConfiguration:
+        Rules:
+          - Id: expire-scans
+            Status: Enabled
+            ExpirationInDays: !Ref RetentionDays
+
+  VisionApi:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      DefaultRouteSettings:
+        ThrottlingBurstLimit: 20
+        ThrottlingRateLimit: 10
+
+  GradeFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      PackageType: Image
+      Architectures: [arm64]
+      Environment:
+        Variables:
+          SCANS_BUCKET: !Ref ScansBucket
+          VISION_API_KEY: !Ref VisionApiKey
+      Policies:
+        - S3CrudPolicy: { BucketName: !Ref ScansBucket }
+      Events:
+        Grade:
+          Type: HttpApi
+          Properties: { ApiId: !Ref VisionApi, Method: POST, Path: /grade }
+        Health:
+          Type: HttpApi
+          Properties: { ApiId: !Ref VisionApi, Method: GET, Path: /health }
+    Metadata:
+      Dockerfile: Dockerfile
+      DockerContext: .
+      DockerTag: python3.12-opencv5
+
+  GradeLogs:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub /aws/lambda/${GradeFunction}
+      RetentionInDays: 14
+
+  VisionDashboard:
+    Type: AWS::CloudWatch::Dashboard
+    Properties:
+      DashboardName: !Sub chillchain-vision-${AWS::StackName}
+      DashboardBody: !Sub |
+        {"widgets":[
+          {"type":"metric","width":12,"height":6,"properties":{"title":"Grading latency (ms)","region":"${AWS::Region}",
+            "metrics":[["ChillChain/Vision","LatencyMs","Action","accept",{"stat":"p50"}],["...",{"stat":"p95"}]],"view":"timeSeries"}},
+          {"type":"metric","width":12,"height":6,"properties":{"title":"Agent actions","region":"${AWS::Region}","stat":"Sum",
+            "metrics":[["ChillChain/Vision","Scans","Action","accept"],["...","sort_and_rescan"],["...","confirm"],["...","retake"]],"view":"timeSeries"}},
+          {"type":"metric","width":12,"height":6,"properties":{"title":"Grades","region":"${AWS::Region}","stat":"Sum",
+            "metrics":[["ChillChain/Vision","Scans","Grade","A"],["...","B"],["...","C"]],"view":"timeSeries"}},
+          {"type":"metric","width":12,"height":6,"properties":{"title":"Lambda","region":"${AWS::Region}",
+            "metrics":[["AWS/Lambda","Errors","FunctionName","${GradeFunction}"],[".","Throttles",".","."],[".","Duration",".",".",{"stat":"p95"}]]}}
+        ]}
+
+Outputs:
+  VisionApiUrl:
+    Description: Set VISION_API_URL in the ChillChain app to this value.
+    Value: !Sub https://${VisionApi}.execute-api.${AWS::Region}.amazonaws.com
+  ScansBucketName:
+    Value: !Ref ScansBucket
+  Dashboard:
+    Value: !Sub https://console.aws.amazon.com/cloudwatch/home?region=${AWS::Region}#dashboards:name=chillchain-vision-${AWS::StackName}
