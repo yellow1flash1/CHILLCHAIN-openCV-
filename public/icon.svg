@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- ChillChain mark in one colour: white on a black squircle. The link crossings are cut out with masks. -->
+  <rect width="512" height="512" rx="112" fill="#000000"/>
+  <defs>
+    <mask id="a" maskUnits="userSpaceOnUse"><rect width="120" height="70" fill="#fff"/><rect x="10" y="18" width="52" height="32" rx="16" fill="none" stroke="#000" stroke-width="13"/></mask>
+    <mask id="b" maskUnits="userSpaceOnUse"><rect width="120" height="70" fill="#fff"/><path d="M56.8 53.1 A16 16 0 0 1 50.2 42.8" fill="none" stroke="#000" stroke-width="13"/></mask>
+    <mask id="c" maskUnits="userSpaceOnUse"><rect width="120" height="70" fill="#fff"/><path d="M19 17 Q 27 11, 35 5" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round"/></mask>
+  </defs>
+  <g transform="translate(20 120) scale(4.2)" color="#ffffff">
+    <g fill="none" stroke="currentColor" stroke-width="8">
+      <rect x="50" y="24" width="52" height="32" rx="16" mask="url(#a)"/>
+      <rect x="10" y="18" width="52" height="32" rx="16" mask="url(#b)"/>
+      <path d="M56.8 53.1 A16 16 0 0 1 50.2 42.8"/>
+    </g>
+    <path d="M17 19 C 15 7, 27 1, 37 3 C 37 12, 29 20, 17 19 Z" fill="currentColor" mask="url(#c)"/>
+    <circle cx="39" cy="28" r="3.6" fill="currentColor"/>
+    <g stroke="currentColor" stroke-width="2.6" stroke-linecap="round" fill="none">
+      <path d="M76 30 V50 M72.5 32.5 L76 35 L79.5 32.5 M72.5 47.5 L76 45 L79.5 47.5"/>
+      <path d="M76 30 V50 M72.5 32.5 L76 35 L79.5 32.5 M72.5 47.5 L76 45 L79.5 47.5" transform="rotate(60 76 40)"/>
+      <path d="M76 30 V50 M72.5 32.5 L76 35 L79.5 32.5 M72.5 47.5 L76 45 L79.5 47.5" transform="rotate(120 76 40)"/>
+    </g>
+  </g>
+</svg>
