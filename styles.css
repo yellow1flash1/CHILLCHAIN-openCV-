@@ -1,0 +1,296 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-serif:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", system-ui, sans-serif;
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", system-ui, sans-serif;
+  --radius-sm: 7px;
+  --radius-md: 9px;
+  --radius-lg: 10px;
+  --radius-xl: 14px;
+  --radius-2xl: 14px;
+  --radius-3xl: 18px;
+  /* Tailwind's shadow-sm is the raised segment of an iOS segmented control. */
+  --shadow-sm: 0 3px 8px rgba(0, 0, 0, 0.12), 0 3px 1px rgba(0, 0, 0, 0.04);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-2: var(--primary-2);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-saffron: var(--saffron);
+  --color-saffron-strong: var(--saffron-strong);
+  --color-saffron-soft: var(--saffron-soft);
+  --color-navy: var(--navy);
+  --color-navy-soft: var(--navy-soft);
+  --color-chill: var(--chill);
+  --color-berry: var(--berry);
+  --color-berry-soft: var(--berry-soft);
+}
+
+/* iOS system colours (grouped table style). The --bg … --red names are the iOS ones; the older names
+   below them are what the screens use, so every screen picks the iOS palette up without code changes:
+   primary / saffron / gold / navy / chill are the system blue, success green, warning orange, berry and
+   destructive red. */
+:root {
+  --bg: #f2f2f7;
+  --card: #ffffff;
+  --fill: #e9e9ee;
+  --label: #000000;
+  --label2: rgba(60, 60, 67, 0.6);
+  --sep: rgba(60, 60, 67, 0.18);
+  --bar: rgba(249, 249, 249, 0.78);
+  --blue: #007aff;
+  --green: #34c759;
+  --orange: #ff9500;
+  --red: #ff3b30;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --tint: color-mix(in srgb, var(--blue) 13%, transparent);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #000000;
+    --card: #1c1c1e;
+    --fill: #2c2c2e;
+    --label: #ffffff;
+    --label2: rgba(235, 235, 245, 0.6);
+    --sep: rgba(84, 84, 88, 0.6);
+    --bar: rgba(30, 30, 30, 0.72);
+    --blue: #0a84ff;
+    --green: #30d158;
+    --orange: #ff9f0a;
+    --red: #ff453a;
+    --shadow: none;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #000000;
+  --card: #1c1c1e;
+  --fill: #2c2c2e;
+  --label: #ffffff;
+  --label2: rgba(235, 235, 245, 0.6);
+  --sep: rgba(84, 84, 88, 0.6);
+  --bar: rgba(30, 30, 30, 0.72);
+  --blue: #0a84ff;
+  --green: #30d158;
+  --orange: #ff9f0a;
+  --red: #ff453a;
+  --shadow: none;
+}
+:root {
+  --radius: 14px;
+  --background: var(--bg);
+  --foreground: var(--label);
+  --card-foreground: var(--label);
+  --popover: var(--card);
+  --popover-foreground: var(--label);
+  --primary: var(--blue);
+  --primary-2: color-mix(in srgb, var(--blue) 85%, black);
+  --primary-foreground: #ffffff;
+  --secondary: var(--fill);
+  --secondary-foreground: var(--label);
+  --gold: var(--blue);
+  --gold-soft: var(--tint);
+  --gold-foreground: var(--blue);
+  --muted: var(--fill);
+  --muted-foreground: var(--label2);
+  --accent: var(--tint);
+  --accent-foreground: var(--blue);
+  --success: var(--green);
+  --warning: var(--orange);
+  --destructive: var(--red);
+  --destructive-foreground: #ffffff;
+  --border: var(--sep);
+  --input: var(--sep);
+  --ring: var(--blue);
+  --saffron: var(--blue);
+  --saffron-strong: var(--blue);
+  --saffron-soft: var(--tint);
+  --navy: var(--blue);
+  --navy-soft: var(--tint);
+  --chill: var(--blue);
+  --berry: var(--red);
+  --berry-soft: color-mix(in srgb, var(--red) 13%, transparent);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    font-size: var(--fg-scale, 16px);
+  }
+  body {
+    background-color: var(--bg);
+    color: var(--label);
+    font-family: var(--font-sans);
+    line-height: 1.35;
+    font-variant-numeric: tabular-nums;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+  }
+  button:focus-visible,
+  a:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+}
+
+/* Inset grouped card. */
+@utility card-classic {
+  background: var(--card);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+@utility hero-band {
+  background: var(--card);
+  color: var(--label);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+@utility seal {
+  border: 0.5px solid var(--sep);
+  color: var(--label);
+}
+/* Small status pill. */
+@utility stamp {
+  background: color-mix(in srgb, var(--green) 16%, transparent);
+  color: var(--green);
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.8125rem;
+}
+@utility certificate {
+  background: var(--card);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+/* Translucent iOS bar (navigation and tab bars). */
+@utility ios-bar {
+  background: var(--bar);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+/* Inset grouped list: a 0.5px hairline between rows, inset from the left. */
+@utility ios-list {
+  background: var(--card);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  & > * {
+    position: relative;
+  }
+  /* rows with a 40px leading icon set --sep-inset: 68px */
+  & > * + *::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: var(--sep-inset, 16px);
+    border-top: 0.5px solid var(--sep);
+  }
+}
+
+/* Bottom sheet: Apple's spring curve. */
+@keyframes sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes scrim-in {
+  from {
+    opacity: 0;
+  }
+}
+@utility animate-sheet {
+  animation: sheet-up 0.38s cubic-bezier(0.32, 0.72, 0, 1);
+}
+@utility animate-scrim {
+  animation: scrim-in 0.25s ease-out;
+}
+
+@keyframes laser {
+  0%,
+  100% {
+    top: 6%;
+  }
+  50% {
+    top: 92%;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@utility animate-laser {
+  animation: laser 1.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+  .animate-sheet,
+  .animate-scrim {
+    animation: none;
+  }
+  .animate-laser,
+  .animate-pulse,
+  .animate-spin {
+    animation-duration: 3s;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .print-area,
+  .print-area * {
+    visibility: visible;
+  }
+  .print-area {
+    position: fixed;
+    inset: 0;
+  }
+}
