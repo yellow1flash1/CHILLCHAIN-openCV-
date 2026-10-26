@@ -1,0 +1,266 @@
+[
+  {
+    "k": "cmhs0d",
+    "re": "^Namaste ([\\s\\S]*?) ji 🚚 I'm your ChillChain Safar Sahayak\\. Ask me about your trips, keeping produce fresh on the road, documents or payments, in your own language\\.$"
+  },
+  {
+    "k": "16kfrei",
+    "re": "^Namaste ([\\s\\S]*?) ji 🙏 I'm Chill Sahayak\\. Ask me how to keep your fruit, flowers or mushrooms fresh and sell them before the clock runs out, in your own language\\.$"
+  },
+  {
+    "k": "1t0s3p5",
+    "re": "^Each deal scores 0–100\\. Your running score R uses recency weighting \\(R = 0\\.25 × this deal \\+ 0\\.75 × previous R\\)\\. Stars = 1 \\+ 4 × R/100, smoothed toward ([\\s\\S]*?)★ until you have more deals: N/\\(N\\+([\\s\\S]*?)\\) × stars \\+ ([\\s\\S]*?)/\\(N\\+([\\s\\S]*?)\\) × ([\\s\\S]*?)\\.$"
+  },
+  {
+    "k": "1vjxecd",
+    "re": "^Estimates\\. Market price ₹([\\s\\S]*?)/kg for grade A \\(([\\s\\S]*?)\\); B sells about ([\\s\\S]*?)% lower; processors pay about ([\\s\\S]*?)%; buyers pay less as shelf life runs out; shared reefer to ([\\s\\S]*?)\\.$"
+  },
+  {
+    "k": "n2lbg8",
+    "re": "^Severe heat, up to ([\\s\\S]*?)°C: harvest before 8 am, keep crates in shade and pre-cool within 1 hour\\. Open-air produce spoils about ([\\s\\S]*?)× faster than at 25°C\\.$"
+  },
+  {
+    "k": "lurhri",
+    "re": "^With few deals the rating stays close to ([\\s\\S]*?)★; each new deal moves it more as N grows\\. Gold ≥ 4\\.5★ \\(after at least 3 ratings\\), Standard 3\\.2–4\\.4★, Probation < 3\\.2★\\.$"
+  },
+  {
+    "k": "1jiflee",
+    "re": "^AI grading has used today's free limit \\(back at about ([\\s\\S]*?)\\)\\. Grade this lot yourself below; buyers will see it as self-graded\\.$"
+  },
+  {
+    "k": "h9erz0",
+    "re": "^Rain likely \\(([\\s\\S]*?)%, ([\\s\\S]*?) mm\\): harvest and load before it starts, cover crates, and don't pack wet fruit, which rots faster\\.$"
+  },
+  {
+    "k": "ovkazy",
+    "re": "^Cold night, down to ([\\s\\S]*?)°C: protect chill-sensitive fruit \\(mango, banana, papaya, avocado\\) from chill injury\\.$"
+  },
+  {
+    "k": "67jiwq",
+    "re": "^([\\s\\S]*?)°C average for the next 24 h: produce in open air spoils about ([\\s\\S]*?)× faster than at 25°C\\. The clock accounts for it\\.$"
+  },
+  {
+    "k": "1luyh4n",
+    "re": "^Thanks! Rating saved \\(deal score ([\\s\\S]*?)/100\\)\\. It will be revealed after the other side rates or in 48 hours\\.$"
+  },
+  {
+    "k": "1yf2ucr",
+    "re": "^([\\s\\S]*?)°C average for the next 24 h: cooler air gives a little more time\\. The clock accounts for it\\.$"
+  },
+  {
+    "k": "d521jt",
+    "re": "^You earn about ₹([\\s\\S]*?) per km on paid trips\\. Subtract diesel and tolls to see your profit\\.$"
+  },
+  {
+    "k": "17ljy1v",
+    "re": "^Hot day, up to ([\\s\\S]*?)°C: harvest early and move produce to cold storage the same morning\\.$"
+  },
+  {
+    "k": "1n2ysnv",
+    "re": "^([\\s\\S]*?) photos could not be graded by the AI: scan them again or grade them yourself\\.$"
+  },
+  {
+    "k": "1m7agow",
+    "re": "^This photo doesn't look like ([\\s\\S]*?)\\. Fill the frame with the produce and try again\\.$"
+  },
+  {
+    "k": "5qhiu1",
+    "re": "^UPI ID format looks right([\\s\\S]*?)\\. The name is confirmed on your first payment\\.$"
+  },
+  {
+    "k": "195x0mq",
+    "re": "^The model is only ([\\s\\S]*?)% sure\\. Hold steady, use daylight and try again\\.$"
+  },
+  {
+    "k": "1ufpo9w",
+    "re": "^([\\s\\S]*?) crates are stored right now, so capacity cannot go below that\\.$"
+  },
+  {
+    "k": "ofx76j",
+    "re": "^AI said grade ([\\s\\S]*?); you changed it to ([\\s\\S]*?)\\. Buyers see that you graded it\\.$"
+  },
+  {
+    "k": "18rkilr",
+    "re": "^Clock set for ([\\s\\S]*?)°C average air temperature in your district\\.$"
+  },
+  {
+    "k": "f418pd",
+    "re": "^([\\s\\S]*?) new rating\\(s\\) unlock within 48 hours \\(double-blind\\)\\.$"
+  },
+  {
+    "k": "12s42zf",
+    "re": "^This flow is ([\\s\\S]*?)% system telemetry and ([\\s\\S]*?)% peer review\\.$"
+  },
+  {
+    "k": "1n5zyob",
+    "re": "^ The other ([\\s\\S]*?) kg stays open for other growers\\.$"
+  },
+  {
+    "k": "1kg5j7s",
+    "re": "^Why are ([\\s\\S]*?) kg rejected\\? The grower sees this\\.$"
+  },
+  {
+    "k": "8h011w",
+    "re": "^([\\s\\S]*?) of ([\\s\\S]*?) kg already taken by other growers$"
+  },
+  {
+    "k": "1rurdhx",
+    "re": "^Accepted ([\\s\\S]*?) kg · ([\\s\\S]*?) kg rejected \\(([\\s\\S]*?)\\), refunded$"
+  },
+  {
+    "k": "16daga2",
+    "re": "^([\\s\\S]*?) scans were not accepted; see Scan\\.$"
+  },
+  {
+    "k": "9pme7a",
+    "re": "^([\\s\\S]*?) kg accepted and paid · ([\\s\\S]*?) kg rejected: \"([\\s\\S]*?)\"$"
+  },
+  {
+    "k": "ycbc0e",
+    "re": "^Updated ([\\s\\S]*?) · Agmarknet, Govt\\. of India$"
+  },
+  {
+    "k": "mzw14n",
+    "re": "^How much can you supply\\? \\(1–([\\s\\S]*?) kg\\)$"
+  },
+  {
+    "k": "6v458c",
+    "re": "^Wrong code — ([\\s\\S]*?) attempt\\(s\\) left$"
+  },
+  {
+    "k": "1h1gbfc",
+    "re": "^Please enter your ([\\s\\S]*?) number$"
+  },
+  {
+    "k": "wgks3q",
+    "re": "^ · ([\\s\\S]*?) more than selling today$"
+  },
+  {
+    "k": "g8qd8g",
+    "re": "^Loads near you \\(within ([\\s\\S]*?) km\\)$"
+  },
+  {
+    "k": "asny3a",
+    "re": "^Offer ([\\s\\S]*?) kg to processors$"
+  },
+  {
+    "k": "1u7v6i1",
+    "re": "^ · ([\\s\\S]*?) kg rejected · ([\\s\\S]*?) back to you$"
+  },
+  {
+    "k": "1d7g5b1",
+    "re": "^Weight you accept \\(of ([\\s\\S]*?) kg\\)$"
+  },
+  {
+    "k": "h7lbj2",
+    "re": "^([\\s\\S]*?) scans waiting to send\\.$"
+  },
+  {
+    "k": "10r31di",
+    "re": "^Rate ([\\s\\S]*?) completed deals$"
+  },
+  {
+    "k": "1tuic2l",
+    "re": "^([\\s\\S]*?) kg accepted · ([\\s\\S]*?) released$"
+  },
+  {
+    "k": "exienn",
+    "re": "^Sending ([\\s\\S]*?) saved scans…$"
+  },
+  {
+    "k": "1wa1t7q",
+    "re": "^([\\s\\S]*?) awaiting delivery$"
+  },
+  {
+    "k": "wus8us",
+    "re": "^Pre-cool ([\\s\\S]*?) h, then sell$"
+  },
+  {
+    "k": "hhyd6o",
+    "re": "^([\\s\\S]*?) goes to the grower$"
+  },
+  {
+    "k": "b0ljpt",
+    "re": "^([\\s\\S]*?) saved scans sent\\.$"
+  },
+  {
+    "k": "14yqh07",
+    "re": "^([\\s\\S]*?) markets in India$"
+  },
+  {
+    "k": "11c9sh1",
+    "re": "^Show all ([\\s\\S]*?) markets$"
+  },
+  {
+    "k": "m9zcuk",
+    "re": "^Most markets: ₹([\\s\\S]*?)–₹([\\s\\S]*?)/kg$"
+  },
+  {
+    "k": "12v1a0u",
+    "re": "^at ([\\s\\S]*?) is ([\\s\\S]*?) your ₹([\\s\\S]*?) alert$"
+  },
+  {
+    "k": "hmim95",
+    "re": "^([\\s\\S]*?) h left at buyer$"
+  },
+  {
+    "k": "u2rk1a",
+    "re": "^Crates 1–([\\s\\S]*?), hours 1–72$"
+  },
+  {
+    "k": "9rc9e9",
+    "re": "^Crates 1–([\\s\\S]*?), days 1–60$"
+  },
+  {
+    "k": "l8wl6a",
+    "re": "^rated by the ([\\s\\S]*?)$"
+  },
+  {
+    "k": "l422vf",
+    "re": "^Sell within ([\\s\\S]*?)$"
+  },
+  {
+    "k": "re0b2o",
+    "re": "^([\\s\\S]*?) markets in ([\\s\\S]*?)$"
+  },
+  {
+    "k": "1n7ivmq",
+    "re": "^Enter 1 to ([\\s\\S]*?) kg$"
+  },
+  {
+    "k": "79275t",
+    "re": "^Enter 0 to ([\\s\\S]*?) kg$"
+  },
+  {
+    "k": "90rw8",
+    "re": "^ · ([\\s\\S]*?) back to you$"
+  },
+  {
+    "k": "38j176",
+    "re": "^([\\s\\S]*?) of ([\\s\\S]*?) kg taken$"
+  },
+  {
+    "k": "9j4nee",
+    "re": "^([\\s\\S]*?) hours ago$"
+  },
+  {
+    "k": "ir8z4z",
+    "re": "^([\\s\\S]*?) account$"
+  },
+  {
+    "k": "1a1k28n",
+    "re": "^Namaste([\\s\\S]*?)$"
+  },
+  {
+    "k": "16i6trd",
+    "re": "^([\\s\\S]*?) unpaid$"
+  },
+  {
+    "k": "585luv",
+    "re": "^([\\s\\S]*?) Badge$"
+  },
+  {
+    "k": "1kvjdmi",
+    "re": "^([\\s\\S]*?) years$"
+  }
+]
